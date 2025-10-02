@@ -24,7 +24,7 @@ export class AuthController {
             res.cookie("accessToken", result.accessToken, {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
                 maxAge: 15 * 60 * 1000
             });
         }
@@ -33,7 +33,7 @@ export class AuthController {
             res.cookie("refreshToken", result.refreshToken, {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
                 maxAge: 7 * 24 * 60 * 60 * 1000
             });
         }
@@ -47,7 +47,7 @@ export class AuthController {
             res.cookie("accessToken", result.accessToken, {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
                 path: "/",
                 maxAge: 15 * 60 * 1000
             });
@@ -57,7 +57,7 @@ export class AuthController {
             res.cookie("refreshToken", result.refreshToken, {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
                 maxAge: 7 * 24 * 60 * 60 * 1000
             });
         }
@@ -90,14 +90,14 @@ export class AuthController {
             {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
             }
         );
         res.clearCookie("refreshToken",
             {
                 httpOnly: true,
                 secure: config.nodeEnv === "production",
-                sameSite: "lax",
+                sameSite: "none",
             }
         );
         res.status(HttpStatusCode.OK).json({ message: HttpResponse.LOGOUT_SUCCESS });

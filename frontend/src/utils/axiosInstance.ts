@@ -69,19 +69,30 @@ export const setupAxiosInterceptors = (dispatch: AppDispatch) => {
 
 
     axiosInstance.interceptors.response.use(
-        res => res,
-        error => {
+        (res) => res,
+        (error) => {
+            let errorMessage = "Something went wrong";
+
             if (error.response) {
-                toast.error(error.response.data.status || error.response.data.message);
+                errorMessage =
+                    error.response.data?.message ||
+                    error.response.data?.status ||
+                    errorMessage;
+
+                toast.error(errorMessage);
             } else if (error.request) {
-                console.error("Network error: no response");
+                errorMessage = "Network error: no response from server";
+                toast.error(errorMessage);
             } else {
-                console.error("Axios error:", error.message);
+                errorMessage = error.message || errorMessage;
+                toast.error(errorMessage);
             }
+            console.error("Axios error:", errorMessage, error);
 
             return Promise.reject(error);
         }
     );
+
 };
 
 export default axiosInstance;
