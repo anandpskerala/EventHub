@@ -1,4 +1,4 @@
-# EventBooking Documentation
+# EventHub
 
 EventBooking is a full-featured React web application designed for discovering, booking, and managing events. This documentation provides comprehensive guidance on setup, configuration, and usage.
 
