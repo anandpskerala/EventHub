@@ -131,7 +131,7 @@ const OrganizerApplicationPage = () => {
             <div className="flex flex-col h-screen">
                 <NavBar />
                 <div className="flex flex-row w-full gap-5">
-                    <UserSideBar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+                    <UserSideBar name='profile' isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
                     <div className="space-y-6 flex w-full flex-col mt-5 mr-1">
                         <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
                             <div className="max-w-2xl mx-auto">
@@ -170,7 +170,7 @@ const OrganizerApplicationPage = () => {
         <div className="flex flex-col h-screen">
             <NavBar />
             <div className="flex flex-row w-full gap-5">
-                <UserSideBar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+                <UserSideBar name='profile' isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
                 <div className="space-y-6 flex w-full flex-col mt-5 mr-1">
                     <div className="max-w-full px-10">
                         <div className="mb-8">
